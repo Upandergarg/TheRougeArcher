@@ -1,0 +1,195 @@
+/* =========================
+   COMMON BACKGROUND
+   THE ROGUE ARCHER
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+:root {
+    --cream: #f2dfae;
+    --gold: #d99b32;
+    --orange: #b96525;
+    --red: #8f3025;
+    --brown: #3a2117;
+    --dark: #120d0a;
+    --paper: #c9a96a;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    color: var(--cream);
+
+    font-family:
+        "MedievalSharp",
+        cursive;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            #5c3820 0%,
+            #281812 42%,
+            #100b08 100%
+        );
+}
+
+
+/* =========================
+   SCREEN TEXTURE
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.12;
+
+    background-image:
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.04) 0px,
+            rgba(255,255,255,0.04) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index: 50;
+}
+
+
+/* =========================
+   DARK VIGNETTE
+========================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(0,0,0,0.7) 100%
+        );
+
+    z-index: 40;
+}
+
+
+/* =========================
+   PAGE BACKGROUND CONTAINER
+========================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+
+
+
+/* =========================
+   FRAME
+========================= */
+
+.frame {
+
+    position: fixed;
+
+    inset: 20px;
+
+    border:
+        1px solid
+        rgba(205,163,91,0.25);
+
+    pointer-events: none;
+
+    z-index: 30;
+}
+
+
+/* =========================
+   FRAME CORNERS
+========================= */
+
+.frame::before,
+.frame::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    border-color:
+        #c89a4e;
+
+    border-style:
+        solid;
+}
+
+
+/* Top-left */
+
+.frame::before {
+
+    top: -1px;
+    left: -1px;
+
+    border-width:
+        2px 0 0 2px;
+}
+
+
+/* Bottom-right */
+
+.frame::after {
+
+    bottom: -1px;
+    right: -1px;
+
+    border-width:
+        0 2px 2px 0;
+}

@@ -5,17 +5,17 @@
         const statsBtn = document.getElementById("statsBtn");
 
         playBtn.addEventListener("click", () => {
-            console.log("Starting Ragdoll Archer...");
+          window.location.href= "../html/GamePage.html"
         });
 
         guideBtn.addEventListener("click", () => {
-            console.log("Opening Guide...");
+            window.location.href="../html/HomePageFeatures/GuidePage.html";
         });
 
         shopBtn.addEventListener("click", () => {
-            console.log("Opening Shop...");
+             window.location.href= "../html/HomePageFeatures/ShopPage.html";
         });
 
         statsBtn.addEventListener("click", () => {
-            console.log("Opening Stats...");
+             window.location.href= "../html/HomePageFeatures/StatsPage.html";
         });

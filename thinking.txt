@@ -1,0 +1,17 @@
+learning-> 
+1. plaining
+2. executing
+3. value of doing small things daily
+4. make it simple first then complex
+5. break the problem down to minnimal
+
+
+journey->
+
+day1,2
+i started it with making the file structure. and making the homepage, and guide page in 2 days
+
+
+day3 
+making proper file structure and plan , making navigations links between them
+more clariety

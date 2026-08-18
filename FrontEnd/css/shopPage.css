@@ -1,0 +1,260 @@
+/* =========================
+   SHOP PAGE
+========================= */
+
+.shop-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.shop-page h1 {
+    font-family: "MedievalSharp", cursive;
+
+    font-size: clamp(75px, 12vw, 150px);
+
+    line-height: 0.78;
+    letter-spacing: -2px;
+
+    text-transform: uppercase;
+
+    color: var(--cream);
+
+    text-shadow:
+        5px 5px 0 #4b2418,
+        9px 9px 0 rgba(143,48,37,0.5);
+
+    animation: titleAppear 1.2s ease-out;
+}
+
+
+/* =========================
+   COINS
+========================= */
+
+.coins {
+    margin-top: 25px;
+
+    font-family: Georgia, serif;
+    font-size: 13px;
+
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    color: #c79b55;
+}
+
+#coins {
+    color: #d7b56b;
+}
+
+
+/* =========================
+   SHOP ITEMS
+========================= */
+
+.shop-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    width: min(1000px, 90%);
+
+    margin: 35px 0;
+
+  
+}
+
+.shop-item {
+    padding: 25px;
+
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #8c6936;
+
+    background: rgba(24,14,10,0.75);
+
+    box-shadow: 6px 6px 0 #24120d;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+      border-radius: 20px;
+}
+
+
+.shop-item:hover {
+    transform: translateY(-4px);
+
+    border-color: #d0a84f;
+}
+
+
+/* =========================
+   ITEM IMAGE
+========================= */
+
+.item-image {
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #6f502b;
+
+    background: rgba(20,12,8,0.8);
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #816d4d;
+}
+
+/* =========================
+   ITEM NAME
+========================= */
+
+.shop-item h2 {
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color: #d2b67b;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.shop-item p {
+    margin: 10px 0 15px;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #c79b55;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.shop-item button,
+#backBtn {
+    padding: 10px 22px;
+
+    border: 1px solid #8c6936;
+
+    background: rgba(24,14,10,0.75);
+
+    color: #d2b67b;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.shop-item button:hover,
+#backBtn:hover {
+    background: #4a281b;
+
+    color: #f0d38d;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+#backBtn {
+    padding: 12px 25px;
+}
+
+
+/* =========================
+   TITLE ANIMATION
+========================= */
+
+@keyframes titleAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .shop-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shop-page h1 {
+        font-size: 72px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .shop-container {
+        grid-template-columns: 1fr;
+    }
+}

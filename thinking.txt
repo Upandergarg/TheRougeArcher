@@ -15,3 +15,11 @@ i started it with making the file structure. and making the homepage, and guide 
 day3 
 making proper file structure and plan , making navigations links between them
 more clariety
+
+
+day4
+making basic layout of stats, shop,guide page.. using ai for css 
+
+
+day5
+making gaming page layout

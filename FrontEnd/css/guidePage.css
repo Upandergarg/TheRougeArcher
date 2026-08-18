@@ -2,28 +2,24 @@
    GUIDE PAGE
 ========================= */
 
-.guide {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
+html,
+body {
+    min-height: 100%;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
+.guide-page {
+    width: 100%;
+    min-height: 100vh;
 
-/* =========================
-   MAIN CONTENT
-========================= */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.content {
-    position: relative;
+    text-align: center;
 
-    z-index: 5;
-
-    width: min(1100px, 90%);
-
-    margin: auto;
-
-    padding: 70px 0 100px;
+    padding: 70px 20px;
 }
 
 
@@ -31,10 +27,14 @@
    HEADER
 ========================= */
 
-.small-title {
-    text-align: center;
+.guide-header {
+    margin-bottom: 60px;
+}
 
-    font-size: 14px;
+.small-title {
+    font-family: Georgia, serif;
+
+    font-size: 13px;
 
     text-transform: uppercase;
 
@@ -47,16 +47,15 @@
 
 
 .title {
-    text-align: center;
+    font-family: "MedievalSharp", cursive;
 
-    font-family:
-        "MedievalSharp",
-        cursive;
+    font-size: clamp(75px, 12vw, 150px);
 
-    font-size:
-        clamp(65px, 10vw, 120px);
+    line-height: 0.78;
 
-    line-height: 0.8;
+    letter-spacing: -2px;
+
+    text-transform: uppercase;
 
     color: var(--cream);
 
@@ -64,111 +63,186 @@
         5px 5px 0 #4b2418,
         9px 9px 0 rgba(143,48,37,0.5);
 
-    transform: rotate(-1deg);
+    animation: titleAppear 1.2s ease-out;
 }
 
 
 .subtitle {
-    text-align: center;
+    margin-top: 30px;
 
-    margin-top: 25px;
+    font-family: Georgia, serif;
 
-    font-size: 18px;
+    font-size: 14px;
 
     text-transform: uppercase;
 
-    letter-spacing: 5px;
+    letter-spacing: 6px;
 
     color: #d0ae70;
 }
 
 
 /* =========================
-   GUIDE ROW
+   GUIDE STEPS
 ========================= */
 
-.guide-row {
+.guide-steps {
+    width: min(950px, 90%);
+
     display: flex;
+    flex-direction: column;
 
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 70px;
-
-    margin-top: 90px;
-}
-
-
-.guide-row.reverse {
-    flex-direction: row-reverse;
+    gap: 30px;
 }
 
 
 /* =========================
-   GUIDE TEXT
+   STEP
 ========================= */
 
-.guide-text {
-    flex: 1;
+.guide-step {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 375px;
+
+    align-items: center;
+
+    text-align: left;
+
+    margin-bottom: 40px;
 }
 
+.step-text {
+    padding: 30px 40px;
+}
 
-.guide-text h2 {
-    font-size: 38px;
+.step-number {
+    font-family: Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #c79b55;
+}
+
+.step-text h2 {
+    margin-top: 10px;
+
+    font-family: "MedievalSharp", cursive;
+    font-size: 42px;
 
     color: var(--cream);
 
     text-shadow:
         3px 3px 0 #4b2418;
-
-    margin-bottom: 25px;
 }
 
+.step-text p {
+    margin-top: 20px;
 
-.guide-text p {
-    font-size: 21px;
+    max-width: 650px;
 
-    line-height: 1.6;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
 
-    color: #d0b983;
-
-    margin-bottom: 15px;
+    color: #d0ae70;
 }
 
+.step-image {
+    height: 375px;
 
-.guide-text span {
-    color: #f0c45d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #6f502b;
+
+    background: rgba(20,12,8,0.45);
+
+    font-family: Georgia, serif;
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #816d4d;
+}
+
+.guide-step:hover {
+    transform: translateY(-4px);
+
+    border-color: #d0a84f;
 }
 
 
 /* =========================
-   IMAGE / PICTURE SPACE
+   IMAGE
 ========================= */
 
-.picture {
-    flex: 1;
-
-    height: 300px;
+.step-image {
+    width: 100%;
+    height: 320px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border:
-        1px solid
-        rgba(205,163,91,0.5);
+    border: 1px solid #6f502b;
 
-    background:
-        rgba(18,14,10,0.45);
+    background: rgba(20,12,8,0.45);
 
-    color:
-        rgba(217,155,50,0.5);
+    font-family: Georgia, serif;
+    font-size: 12px;
 
-    font-size: 16px;
+    letter-spacing: 5px;
 
-    letter-spacing: 4px;
+    color: #816d4d;
+}
+/* =========================
+   TEXT
+========================= */
+
+.step-text {
+    padding: 35px;
+}
+
+.step-number {
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #c79b55;
+}
+
+.step-text h2 {
+    margin-top: 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color: #d7b56b;
+}
+
+.step-text p {
+    margin-top: 15px;
+
+    max-width: 550px;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #a99470;
 }
 
 
@@ -177,42 +251,56 @@
 ========================= */
 
 #backBtn {
-    display: block;
+    margin-top: 45px;
 
-    margin: 90px auto 0;
+    padding: 12px 25px;
 
-    padding: 15px 45px;
+    border: 1px solid #8c6936;
 
-    border:
-        2px solid #e0b452;
+    background: rgba(24,14,10,0.75);
 
-    background:
-        linear-gradient(
-            135deg,
-            #c47c28,
-            #e09c34
-        );
+    color: #d2b67b;
 
-    color: #1c1009;
+    font-family: Georgia, serif;
 
-    font-family:
-        Georgia,
-        serif;
+    font-size: 11px;
 
-    font-weight: bold;
+    text-transform: uppercase;
 
     letter-spacing: 3px;
 
     cursor: pointer;
 
-    box-shadow:
-        6px 6px 0 #24120d;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+#backBtn:hover {
+    background: #4a281b;
+
+    color: #f0d38d;
+
+    transform: translateY(-3px);
 }
 
 
-#backBtn:hover {
-    transform:
-        translateY(-4px);
+/* =========================
+   TITLE ANIMATION
+========================= */
+
+@keyframes titleAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -222,34 +310,31 @@
 
 @media (max-width: 700px) {
 
-    .guide-row,
-    .guide-row.reverse {
-
-        flex-direction: column;
-
-        gap: 30px;
+    .guide-page {
+        padding: 50px 15px;
     }
 
-
-    .guide-text {
-        text-align: center;
+    .title {
+        font-size: 72px;
     }
 
-
-    .picture {
-        width: 100%;
-
-        height: 250px;
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 3px;
     }
 
-
-    .guide-text h2 {
-        font-size: 30px;
+    .guide-step {
+        grid-template-columns: 1fr;
     }
 
+    .step-image {
+        min-height: 180px;
 
-    .guide-text p {
-        font-size: 18px;
+        border-right: none;
+        border-bottom: 1px solid #6f502b;
     }
 
+    .step-text {
+        padding: 25px;
+    }
 }

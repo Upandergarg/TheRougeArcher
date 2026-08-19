@@ -22,4 +22,4 @@ making basic layout of stats, shop,guide page.. using ai for css
 
 
 day5
-making gaming page layout
+making gaming page layout, 

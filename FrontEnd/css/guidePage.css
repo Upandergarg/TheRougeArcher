@@ -7,6 +7,7 @@ body {
     min-height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    background: #180e0a;
 }
 
 .guide-page {

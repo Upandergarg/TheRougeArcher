@@ -1,25 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>The Rogue Archer - Game</title>
+
     <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/gamePage.css">
+    <script src="../javascript/gamePage.js" defer></script>
+
 </head>
+
 <body>
-    <h1>Game Page</h1>
 
-    //settings
-    <button id="settingsBtn">Settings</button>
-    <div id="settingsMenu">
-        <h2>Settings</h2>
+    <main class="game-page">
 
-    <button>Music</button>
-    <button>Resume</button>
-    <button>Restart</button>
-    <button>Exit</button>
-    </div>
+        <!-- Score -->
+        <div class="score">
+            SCORE: <span id="score">0</span>
+        </div>
 
-    
+
+        <!-- Game Area -->
+        <div class="game-area">
+
+            <!-- Hero -->
+            <div class="hero-area">
+
+                <div class="hero">
+                    HERO
+                </div>
+
+                <div class="hero-stats">
+
+                    <div class="health">
+                        HEALTH: 100
+                    </div>
+
+                    <div class="arrows">
+                        ARROWS: 10
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Enemy Positions -->
+
+            <div class="enemy-position enemy-top">
+                ENEMY
+            </div>
+
+            <div class="enemy-position enemy-bottom">
+                ENEMY
+            </div>
+
+        </div>
+
+
+        <!-- Settings -->
+        <button id="settingsBtn">
+            ⚙
+        </button>
+
+
+        <div id="settingsMenu">
+
+            <h2>Settings</h2>
+
+            <button>Music</button>
+            <button>Resume</button>
+            <button>Restart</button>
+            <button>Exit</button>
+
+        </div>
+
+    </main>
+
 </body>
+
 </html>

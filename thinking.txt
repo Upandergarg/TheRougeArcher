@@ -23,3 +23,6 @@ making basic layout of stats, shop,guide page.. using ai for css
 
 day5
 making gaming page layout, 
+fixing up the consistent ui,
+making wise choices for shop page's ui
+making a clear plan how to execute the game logic

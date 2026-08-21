@@ -30,3 +30,68 @@ making a clear plan how to execute the game logic
 
 day 6-
 learning canva api
+
+
+GAME
+│
+├── State
+│   ├── Hero
+│   ├── Enemy
+│   ├── Arrow
+│   └── Enemy Arrow
+│
+├── Input
+│   ├── Mouse movement
+│   ├── Mouse down
+│   └── Mouse up
+│
+├── Update
+│   ├── Aiming
+│   ├── Arrow movement
+│   ├── Gravity
+│   └── Enemy shooting timer
+│
+├── Collision
+│   ├── Head
+│   └── Body
+│
+├── Drawing
+│   ├── Hero
+│   ├── Enemy
+│   ├── Arrows
+│   └── Aim line
+│
+└── Game Loop
+    └── update → draw → repeat
+
+
+                 ┌──────────────┐
+                 │    PLAYER    │
+                 └──────┬───────┘
+                        │
+                     DRAG/AIM
+                        ↓
+                      SHOOT
+                        ↓
+                    ARROW FLIES
+                        ↓
+                    COLLISION
+                        ↓
+               ┌────────┴────────┐
+               ↓                 ↓
+            HEADSHOT          BODY HIT
+               ↓                 ↓
+             DEATH            -25 HP
+               └────────┬────────┘
+                        ↓
+                   ENEMY DIES
+                        ↓
+                  NEW ENEMY
+                        ↓
+                 RANDOM POSITION
+                        ↓
+                     REPEAT
+
+Meanwhile:
+
+ENEMY → SHOOTS → ARROW → PLAYER → HEALTH → GAME OVERb

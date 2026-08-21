@@ -26,40 +26,22 @@
         <!-- Game Area -->
         <div class="game-area">
 
-            <!-- Hero -->
-            <div class="hero-area">
 
-                <div class="hero">
-                    HERO
-                </div>
+            <canvas id="gameCanvas"></canvas>
 
-                <div class="hero-stats">
-
-                    <div class="health">
-                        HEALTH: 100
-                    </div>
-
-                    <div class="arrows">
-                        ARROWS: 10
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Enemy Positions -->
-
-            <div class="enemy-position enemy-top">
-                ENEMY
-            </div>
-
-            <div class="enemy-position enemy-bottom">
-                ENEMY
-            </div>
+           
 
         </div>
+<div id="gameOverMenu">
 
+    <h1>GAME OVER</h1>
+
+    <p>YOUR SCORE: <span id="finalScore">0</span></p>
+
+    <button id="restartBtn">RESTART</button>
+    <button id="exitBtn">EXIT</button>
+
+</div>
 
         <!-- Settings -->
         <button id="settingsBtn">

@@ -1,0 +1,23 @@
+ROGUE ARCHER - GAME JS STRUCTURE
+
+javascript/
+│
+├── gamePage.js
+│
+└── game/
+    ├── canvas.js
+    ├── gameState.js
+    ├── hero.js
+    ├── enemy.js
+    ├── arrows.js
+    ├── input.js
+    └── collision.js
+
+gamePage.js = main controller
+canvas.js = canvas setup
+gameState.js = shared game variables
+hero.js = hero + hero health
+enemy.js = enemy + spawning
+arrows.js = player/enemy arrows
+input.js = mouse + aiming
+collision.js = collisions + hitboxes

@@ -32,6 +32,7 @@ day 6-
 learning canva api
 
 
+day 7-8, full day
 GAME
 │
 ├── State
@@ -95,3 +96,5 @@ GAME
 Meanwhile:
 
 ENEMY → SHOOTS → ARROW → PLAYER → HEALTH → GAME OVERb
+
+

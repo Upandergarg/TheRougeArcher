@@ -2,7 +2,7 @@ import { canvas, ctx } from "./canvas.js";
 import { gameState } from "./gameState.js";
 import { hero, damageHero } from "./hero.js";
 import { enemy, spawnEnemy } from "./enemy.js";
-
+import { saveGameData } from "./storage.js";
 // =========================
 // COLLISION HELPER
 // =========================
@@ -96,7 +96,7 @@ export function checkPlayerArrowCollision() {
     if (isColliding(arrow, hitboxes.head)) {
 
         console.log("HEADSHOT!");
-
+gameState.hits++;
         enemy.health = 0;
         gameState.arrow = null;
 
@@ -104,7 +104,7 @@ export function checkPlayerArrowCollision() {
 
     // Body hit
     else if (isColliding(arrow, hitboxes.body)) {
-
+gameState.hits++;
         enemy.health -= 25;
 
         console.log(
@@ -116,12 +116,21 @@ export function checkPlayerArrowCollision() {
     }
 
     // Enemy dead
-    if (enemy.health <= 0) {
+   if (enemy.health <= 0) {
 
-        console.log("ENEMY DEAD!");
+    console.log("ENEMY DEAD!");
 
-        spawnEnemy();
-    }
+    gameState.score += 50;
+    gameState.kills += 1;
+    gameState.coins+=10;
+    console.log("Score:", gameState.score);
+    console.log("Kills:", gameState.kills);
+    console.log("Coins:", gameState.coins);
+
+    saveGameData();
+
+    spawnEnemy();
+}
 }
 
 

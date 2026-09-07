@@ -19,24 +19,46 @@
 
         <!-- Score -->
         <div class="score">
-            SCORE: <span id="score">0</span>
-        </div>
+    SCORE: <span id="score">0</span>
+    <br>
+    KILLS: <span id="kills">0</span>
+     <br>
+    COINS: <span id="coins">0</span>
+</div>
 
 
         <!-- Game Area -->
         <div class="game-area">
 
+    <canvas id="gameCanvas"></canvas>
 
-            <canvas id="gameCanvas"></canvas>
+    <div class="hero-stats">
+        <div class="health">
+    HEALTH: <span id="health">100</span>
+    <div class="health-bar">
+        <div id="healthFill"></div>
+    </div>
+</div>
 
-           
-
+        <div class="arrows">
+            ARROWS: <span id="arrowCount">10</span>
         </div>
+         <div class="accuracy">
+        ACCURACY: <span id="accuracy">0%</span>
+    </div>
+
+    </div>
+
+</div>
+
+
 <div id="gameOverMenu">
 
     <h1>GAME OVER</h1>
 
     <p>YOUR SCORE: <span id="finalScore">0</span></p>
+    <p>YOUR KILLS: <span id="finalKills">0</span></p>
+    <p>YOUR COINS: <span id="finalCoins">0</span></p>
 
     <button id="restartBtn">RESTART</button>
     <button id="exitBtn">EXIT</button>

@@ -13,5 +13,12 @@ export const gameState = {
 
     enemyShootTimer: 0,
 
-    gameOver: false
+    gameOver: false,
+
+     score: 0,
+    kills: 0,
+    coins:0,
+
+      shots: 0,
+    hits: 0
 };

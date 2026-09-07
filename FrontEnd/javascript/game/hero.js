@@ -43,6 +43,14 @@ export function damageHero(amount) {
         hero.health = 0;
         gameState.gameOver = true;
 
+        document.getElementById("finalScore").textContent =
+    gameState.score;
+
+document.getElementById("finalKills").textContent =
+    gameState.kills;
+document.getElementById("finalCoins").textContent =
+    gameState.coins;
+
         const gameOverMenu =
             document.getElementById("gameOverMenu");
 

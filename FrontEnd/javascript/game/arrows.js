@@ -8,7 +8,11 @@ import { enemy } from "./enemy.js";
 // =========================
 
 export function createArrow() {
-
+if (hero.arrows <= 0) {
+    return;
+}
+hero.arrows--;
+gameState.shots++;
     const heroCenterX =
         hero.x + hero.width / 2;
 
@@ -48,7 +52,7 @@ export function updatePlayerArrow() {
     arrow.y += arrow.velocityY;
 
     // Gravity
-    arrow.velocityY += 0.1;
+    arrow.velocityY += 0.035;
 }
 
 

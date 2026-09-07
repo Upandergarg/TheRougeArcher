@@ -28,7 +28,10 @@ import {
     checkEnemyArrowCollision,
     drawHitboxes
 } from "./game/collision.js";
-
+import {
+    saveGameData,
+    loadGameData
+} from "./game/storage.js";
 
 // =========================
 // SETTINGS / GAME OVER BUTTONS
@@ -153,10 +156,21 @@ function draw() {
         canvas.height
     );
 
+    //updating the states during game adn at the end of the game
+    document.getElementById("score").textContent =
+    gameState.score;
+document.getElementById("kills").textContent = gameState.kills;
+  document.getElementById("coins").textContent = gameState.coins;
+   
+    document.getElementById("arrowCount").textContent = hero.arrows;
+document.getElementById("health").textContent = hero.health;
+document.getElementById("healthFill").style.width =
+    hero.health + "%";
+
     drawHero();
 
     drawEnemy();
-
+ 
     // Temporary debugging hitboxes
     drawHitboxes();
 
@@ -165,6 +179,12 @@ function draw() {
     drawArrow();
 
     drawEnemyArrow();
+    
+  const accuracy =
+    gameState.shots === 0
+        ? 0
+        : (gameState.hits / gameState.shots) * 100;
+    document.getElementById("accuracy").textContent = accuracy.toFixed(2) + "%";
 }
 
 
@@ -183,8 +203,13 @@ function restartGame() {
     gameState.enemyArrow = null;
 
     gameState.enemyShootTimer = 0;
-
+    gameState.score = 0;
+gameState.kills = 0;
+gameState.coins = 0;
+gameState.shots = 0;
+gameState.hits = 0;
     gameState.gameOver = false;
+    
 
     spawnEnemy();
 
@@ -196,6 +221,8 @@ function restartGame() {
     }
 }
 
+loadGameData();
+spawnEnemy();
 
 // =========================
 // GAME LOOP
@@ -209,6 +236,7 @@ function gameLoop() {
 
     requestAnimationFrame(gameLoop);
 }
+
 
 
 // =========================

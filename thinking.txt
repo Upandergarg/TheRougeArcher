@@ -107,7 +107,7 @@ some debugging......
 day 10->  added local storage
 
 
-day 11-> make enemy more real.....
+day 11 -14-> make enemy more real.....
 
 So our final Enemy AI will have just 3 behaviors:
 
@@ -149,4 +149,3 @@ So our final Enemy AI will have just 3 behaviors:
                  │
                  └──────────→ SHOOT AGAIN
 
-                 

@@ -11,7 +11,8 @@ export const enemy = {
     width: 80,
     height: 120,
 
-    health: 100
+    health: 100,
+    accuracy: 0.3
 };
 
 
@@ -52,4 +53,16 @@ export function drawEnemy() {
         enemy.width,
         enemy.height
     );
+}
+
+
+export function moveEnemy() {
+    const topY = 80;
+    const bottomY = canvas.height - enemy.height - 80;
+
+    if (enemy.y === topY) {
+        enemy.y = bottomY;
+    } else {
+        enemy.y = topY;
+    }
 }

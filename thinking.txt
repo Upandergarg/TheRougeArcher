@@ -98,3 +98,55 @@ Meanwhile:
 ENEMY → SHOOTS → ARROW → PLAYER → HEALTH → GAME OVERb
 
 
+
+day9-> learned how to handle state score,coins,kills, and hwo to add them in ui
+
+some debugging......
+
+
+day 10->  added local storage
+
+
+day 11-> make enemy more real.....
+
+So our final Enemy AI will have just 3 behaviors:
+
+🎯 Imperfect aim — enemy can miss.
+📊 Accuracy-based aim — accuracy controls how much it misses.
+⏱️ Variable attack timing — enemy doesn't shoot at exactly the same interval.
+
+             ENEMY AI
+                 │
+                 ▼
+       Where is the hero?
+                 │
+                 ▼
+       Calculate X/Y difference
+                 │
+                 ▼
+       Calculate perfect angle
+                 │
+                 ▼
+       Check enemy accuracy
+                 │
+                 ▼
+       Add random aiming error
+                 │
+                 ▼
+       Calculate arrow velocity
+                 │
+                 ▼
+              SHOOT
+                 │
+                 ▼
+       Reset shooting timer
+                 │
+                 ▼
+       Choose random cooldown
+                 │
+                 ▼
+          Wait 1.5–3 sec
+                 │
+                 └──────────→ SHOOT AGAIN
+
+                 

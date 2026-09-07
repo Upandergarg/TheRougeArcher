@@ -12,7 +12,8 @@ export const gameState = {
     isAiming: false,
 
     enemyShootTimer: 0,
-
+enemyShootTimer: 0,
+enemyShootCooldown: 120,
     gameOver: false,
 
      score: 0,

@@ -10,7 +10,8 @@ import { hero, drawHero } from "./game/hero.js";
 import {
     enemy,
     spawnEnemy,
-    drawEnemy
+    drawEnemy,
+    moveEnemy 
 } from "./game/enemy.js";
 
 import {
@@ -118,7 +119,12 @@ function update() {
 
     // Aim
     updateAim();
+gameState.enemyMoveTimer++;
 
+if (gameState.enemyMoveTimer >= 300) {
+    moveEnemy();
+    gameState.enemyMoveTimer = 0;
+}
     // Player arrow
     updatePlayerArrow();
     checkPlayerArrowCollision();
@@ -126,16 +132,18 @@ function update() {
     // Enemy shooting timer
     gameState.enemyShootTimer++;
 
-    if (
-        gameState.enemyShootTimer >= 120 &&
-        gameState.enemyArrow === null &&
-        enemy.health > 0
-    ) {
+if (
+    gameState.enemyShootTimer >= gameState.enemyShootCooldown &&
+    gameState.enemyArrow === null &&
+    enemy.health > 0
+) {
+    createEnemyArrow();
 
-        createEnemyArrow();
-
-        gameState.enemyShootTimer = 0;
-    }
+    gameState.enemyShootTimer = 0;
+//1.5 - 3 ssec
+    gameState.enemyShootCooldown =
+        90 + Math.floor(Math.random() * 90);
+}
 
     // Enemy arrow
     updateEnemyArrow();

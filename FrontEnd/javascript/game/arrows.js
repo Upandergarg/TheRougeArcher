@@ -104,10 +104,17 @@ export function createEnemyArrow() {
     const heroCenterY =
         hero.y + hero.height / 2;
 
-    const angle = Math.atan2(
-        heroCenterY - enemyCenterY,
-        heroCenterX - enemyCenterX
-    );
+    const perfectAngle = Math.atan2(
+    heroCenterY - enemyCenterY,
+    heroCenterX - enemyCenterX
+);
+
+const maxError = (1 - enemy.accuracy) * 0.8;
+
+const aimError =
+    (Math.random() - 0.5) * maxError;
+
+const angle = perfectAngle + aimError;
 
     gameState.enemyArrow = {
 

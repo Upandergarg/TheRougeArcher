@@ -27,12 +27,20 @@ import { updateAim } from "./game/input.js";
 import {
     checkPlayerArrowCollision,
     checkEnemyArrowCollision,
-    drawHitboxes
+      checkPickupCollision,
+    drawHitboxes,
+    
 } from "./game/collision.js";
 import {
     saveGameData,
     loadGameData
 } from "./game/storage.js";
+import {
+    pickups,
+    spawnHealthPickup,
+    spawnArrowPickup,
+    drawPickups
+} from "./game/pickups.js";
 
 // =========================
 // SETTINGS / GAME OVER BUTTONS
@@ -44,6 +52,49 @@ const restartBtn =
 const exitBtn =
     document.getElementById("exitBtn");
 
+const settingsBtn =
+    document.getElementById("settingsBtn");
+
+const settingsMenu =
+    document.getElementById("settingsMenu");
+const resumeBtn =
+    document.getElementById("resumeBtn");
+const settingsRestartBtn =
+    document.getElementById("settingsRestartBtn");
+const settingsExitBtn =
+    document.getElementById("settingsExitBtn");
+if (settingsBtn) {
+
+   settingsBtn.addEventListener("click", function() {
+
+    gameState.isPaused = true;
+
+    settingsMenu.classList.add("show");
+
+});
+
+resumeBtn.addEventListener("click", function() {
+
+    gameState.isPaused = false;
+
+    settingsMenu.classList.remove("show");
+
+});
+settingsRestartBtn.addEventListener("click", function() {
+
+    settingsMenu.classList.remove("show");
+
+    restartGame();
+
+});
+
+settingsExitBtn.addEventListener("click", function() {
+
+    window.location.href =
+        "../html/index.html";
+
+});
+}
 
 if (exitBtn) {
 
@@ -113,9 +164,10 @@ function drawAimLine() {
 
 function update() {
 
-    if (gameState.gameOver) {
+     if (gameState.gameOver || gameState.isPaused) {
         return;
     }
+
 
     // Aim
     updateAim();
@@ -148,6 +200,17 @@ if (
     // Enemy arrow
     updateEnemyArrow();
     checkEnemyArrowCollision();
+    checkPickupCollision();
+    // Spawn health pickup when health is low
+if (hero.health < 25 && pickups.health === null) {
+    spawnHealthPickup();
+}
+
+
+// Spawn arrow pickup when arrows are low
+if (hero.arrows < 2 && pickups.arrows === null) {
+    spawnArrowPickup();
+}
 }
 
 
@@ -181,7 +244,7 @@ document.getElementById("healthFill").style.width =
  
     // Temporary debugging hitboxes
     drawHitboxes();
-
+drawPickups();
     drawAimLine();
 
     drawArrow();
@@ -193,9 +256,36 @@ document.getElementById("healthFill").style.width =
         ? 0
         : (gameState.hits / gameState.shots) * 100;
     document.getElementById("accuracy").textContent = accuracy.toFixed(2) + "%";
+
+    gameState.arrowTimer++;
+
+if (gameState.arrowTimer >= 600) {
+    hero.arrows += 1;
+
+    if (hero.arrows > 10) {
+        hero.arrows = 10;
+    }
+
+    gameState.arrowTimer = 0;
+}
 }
 
+// =========================
+// TOTAL GAMES PLAYED
+// =========================
 
+function increaseGamesPlayed() {
+
+    let totalPlayed =
+        Number(localStorage.getItem("totalPlayed")) || 0;
+
+    totalPlayed++;
+
+    localStorage.setItem(
+        "totalPlayed",
+        totalPlayed
+    );
+}
 // =========================
 // RESTART
 // =========================
@@ -210,8 +300,11 @@ function restartGame() {
     gameState.arrow = null;
     gameState.enemyArrow = null;
 
-    gameState.enemyShootTimer = 0;
-    gameState.score = 0;
+  gameState.enemyShootTimer = 0;
+gameState.enemyShootCooldown = 120;
+gameState.isPaused = false;
+
+gameState.score = 0;
 gameState.kills = 0;
 gameState.coins = 0;
 gameState.shots = 0;
@@ -220,7 +313,7 @@ gameState.hits = 0;
     
 
     spawnEnemy();
-
+increaseGamesPlayed();
     const gameOverMenu =
         document.getElementById("gameOverMenu");
 
@@ -229,8 +322,6 @@ gameState.hits = 0;
     }
 }
 
-loadGameData();
-spawnEnemy();
 
 // =========================
 // GAME LOOP
@@ -245,12 +336,13 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-
+increaseGamesPlayed();
 
 // =========================
 // START GAME
 // =========================
 
 spawnEnemy();
+
 
 gameLoop();

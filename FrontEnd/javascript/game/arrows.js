@@ -109,7 +109,11 @@ export function createEnemyArrow() {
     heroCenterX - enemyCenterX
 );
 
-const maxError = (1 - enemy.accuracy) * 0.8;
+// 0.8  → enemy misses less
+// 1.5  → enemy misses more
+// 2.0  → enemy misses a lot
+// 3.0  → enemy is very inaccurate
+const maxError = (1 - enemy.accuracy) * 1.5;
 
 const aimError =
     (Math.random() - 0.5) * maxError;

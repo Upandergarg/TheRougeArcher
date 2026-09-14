@@ -267,3 +267,54 @@
     height: 100%;
     background: #a63d32;
 }
+
+#settingsMenu {
+    display: none;
+
+    position: absolute;
+
+    right: 30px;
+    bottom: 80px;
+
+    z-index: 25;
+
+    padding: 20px;
+
+    border: 1px solid #8c6936;
+
+    background: rgba(24, 14, 10, 0.95);
+
+    color: #d7b56b;
+
+    font-family: Georgia, serif;
+
+    text-align: center;
+}
+
+#settingsMenu.show {
+    display: block;
+}
+
+#settingsMenu button {
+    display: block;
+
+    width: 120px;
+
+    margin: 8px auto;
+
+    padding: 8px;
+
+    border: 1px solid #8c6936;
+
+    background: rgba(24, 14, 10, 0.8);
+
+    color: #d2b67b;
+
+    cursor: pointer;
+}
+
+#settingsMenu button:hover {
+    background: #4a281b;
+
+    color: #f0d38d;
+}

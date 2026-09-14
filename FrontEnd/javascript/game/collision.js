@@ -3,6 +3,7 @@ import { gameState } from "./gameState.js";
 import { hero, damageHero } from "./hero.js";
 import { enemy, spawnEnemy } from "./enemy.js";
 import { saveGameData } from "./storage.js";
+import { pickups } from "./pickups.js";
 // =========================
 // COLLISION HELPER
 // =========================
@@ -115,23 +116,23 @@ gameState.hits++;
         gameState.arrow = null;
     }
 
-    // Enemy dead
    if (enemy.health <= 0) {
-
-    console.log("ENEMY DEAD!");
-
-    gameState.score += 50;
+    gameState.score += 100;
     gameState.kills += 1;
-    gameState.coins+=10;
-    console.log("Score:", gameState.score);
-    console.log("Kills:", gameState.kills);
-    console.log("Coins:", gameState.coins);
+
+    let totalCoins =
+        Number(localStorage.getItem("coins")) || 0;
+
+    totalCoins += 10;
+
+    localStorage.setItem("coins", totalCoins);
 
     saveGameData();
 
     spawnEnemy();
 }
 }
+
 
 
 // =========================
@@ -148,8 +149,62 @@ export function checkEnemyArrowCollision() {
 
     if (isColliding(arrow, hero)) {
 
-        damageHero(20);
+        damageHero(10);
 
         gameState.enemyArrow = null;
     }
+}
+
+export function checkPickupCollision() {
+
+    // No player arrow → nothing to check
+    if (!gameState.arrow) {
+        return;
+    }
+
+
+    // -------------------------
+    // HEALTH PICKUP
+    // -------------------------
+
+    if (
+        pickups.health &&
+        isColliding(gameState.arrow, pickups.health)
+    ) {
+
+        hero.health = 100 ;
+
+        if (hero.health > 100) {
+            hero.health = 100;
+        }
+
+        pickups.health = null;
+
+        gameState.arrow = null;
+
+        console.log("Health pickup collected!");
+
+        return;
+    }
+
+
+    // -------------------------
+    // ARROW PICKUP
+    // -------------------------
+
+    if (
+        pickups.arrows &&
+        isColliding(gameState.arrow, pickups.arrows)
+    ) {
+
+        hero.arrows += 20;
+
+        pickups.arrows = null;
+
+        gameState.arrow = null;
+
+        console.log("Arrow pickup collected!");
+
+    }
+
 }

@@ -149,3 +149,12 @@ So our final Enemy AI will have just 3 behaviors:
                  │
                  └──────────→ SHOOT AGAIN
 
+
+
+
+
+
+
+day 17-18 shop , stat page,restart button in game page, read apply, yellow apple one
+solved problem of restart button in settings
+

@@ -21,5 +21,7 @@ enemyShootCooldown: 120,
     coins:0,
 
       shots: 0,
-    hits: 0
+    hits: 0,
+    isPaused: false,
+    arrowTimer: 0,
 };

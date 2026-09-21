@@ -2,17 +2,7 @@ import { gameState } from "./gameState.js";
 
 export function saveGameData() {
 
-    localStorage.setItem(
-        "score",
-        gameState.score
-    );
-
-    localStorage.setItem(
-        "kills",
-        gameState.kills
-    );
-
-    
+    // Persistent stats
     localStorage.setItem(
         "shots",
         gameState.shots
@@ -25,7 +15,6 @@ export function saveGameData() {
 
 
     // Highest score
-
     const oldHighestScore =
         Number(localStorage.getItem("highestScore")) || 0;
 
@@ -40,8 +29,7 @@ export function saveGameData() {
 
 
     // Total games played
-
-    let totalPlayed =
+    const totalPlayed =
         Number(localStorage.getItem("totalPlayed")) || 0;
 
     localStorage.setItem(
@@ -53,18 +41,15 @@ export function saveGameData() {
 
 export function loadGameData() {
 
-    gameState.score =
-        Number(localStorage.getItem("score")) || 0;
-
-    gameState.kills =
-        Number(localStorage.getItem("kills")) || 0;
-
+    // Coins are permanent
     gameState.coins =
         Number(localStorage.getItem("coins")) || 0;
 
+    // Shots and hits are permanent
     gameState.shots =
         Number(localStorage.getItem("shots")) || 0;
 
     gameState.hits =
         Number(localStorage.getItem("hits")) || 0;
+
 }

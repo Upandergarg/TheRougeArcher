@@ -158,3 +158,10 @@ So our final Enemy AI will have just 3 behaviors:
 day 17-18 shop , stat page,restart button in game page, read apply, yellow apple one
 solved problem of restart button in settings
 
+
+
+
+day 20->  fixed life fruits issue
+make game mechanics more fare,
+fixed local storage bug 
+i am not goint to implemet music for noww

@@ -341,7 +341,11 @@ increaseGamesPlayed();
 // =========================
 // START GAME
 // =========================
+loadGameData();
+const startingArrows =
+    Number(localStorage.getItem("startingArrows")) || 10;
 
+hero.arrows = startingArrows;
 spawnEnemy();
 
 

@@ -120,14 +120,11 @@ gameState.hits++;
     gameState.score += 100;
     gameState.kills += 1;
 
-    let totalCoins =
-        Number(localStorage.getItem("coins")) || 0;
+   gameState.coins += 10;
 
-    totalCoins += 10;
+localStorage.setItem("coins", gameState.coins);
 
-    localStorage.setItem("coins", totalCoins);
-
-    saveGameData();
+saveGameData();
 
     spawnEnemy();
 }

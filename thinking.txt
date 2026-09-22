@@ -165,3 +165,7 @@ day 20->  fixed life fruits issue
 make game mechanics more fare,
 fixed local storage bug 
 i am not goint to implemet music for noww
+
+day 21->
+added ui for arrows, and added but then removed ui for arrow Collision and enemy death,
+added ui for pickups powers ups

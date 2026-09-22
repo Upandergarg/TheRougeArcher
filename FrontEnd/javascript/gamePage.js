@@ -28,7 +28,7 @@ import {
     checkPlayerArrowCollision,
     checkEnemyArrowCollision,
       checkPickupCollision,
-    drawHitboxes,
+  
     
 } from "./game/collision.js";
 import {
@@ -211,6 +211,7 @@ if (hero.health < 25 && pickups.health === null) {
 if (hero.arrows < 2 && pickups.arrows === null) {
     spawnArrowPickup();
 }
+
 }
 
 
@@ -243,7 +244,7 @@ document.getElementById("healthFill").style.width =
     drawEnemy();
  
     // Temporary debugging hitboxes
-    drawHitboxes();
+  
 drawPickups();
     drawAimLine();
 

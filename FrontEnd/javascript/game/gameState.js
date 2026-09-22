@@ -24,4 +24,6 @@ enemyShootCooldown: 120,
     hits: 0,
     isPaused: false,
     arrowTimer: 0,
+    
+  
 };

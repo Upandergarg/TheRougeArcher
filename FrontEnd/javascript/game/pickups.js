@@ -128,88 +128,104 @@ export function drawPickups() {
     // HEALTH PICKUP
     // =========================
 
-    if (pickups.health) {
+  // =========================
+// HEALTH PICKUP ❤️
+// =========================
 
-        const x = pickups.health.x;
-        const y = pickups.health.y;
+if (pickups.health) {
 
-        // Glow
-        ctx.shadowColor = "red";
-        ctx.shadowBlur = 15;
+    const x = pickups.health.x;
+    const y = pickups.health.y;
 
-        // Apple body
-        ctx.fillStyle = "#c0392b";
+    ctx.save();
 
-        ctx.beginPath();
-        ctx.arc(x + 15, y + 17, 12, 0, Math.PI * 2);
-        ctx.fill();
+    ctx.fillStyle = "#d93636";
 
-        // Apple stem
-        ctx.shadowBlur = 0;
+    ctx.beginPath();
 
-        ctx.strokeStyle = "#4a281b";
-        ctx.lineWidth = 3;
+    ctx.moveTo(x + 15, y + 26);
 
-        ctx.beginPath();
-        ctx.moveTo(x + 15, y + 6);
-        ctx.lineTo(x + 17, y);
-        ctx.stroke();
+    ctx.bezierCurveTo(
+        x + 5, y + 18,
+        x, y + 12,
+        x + 4, y + 7
+    );
 
-        // Leaf
-        ctx.fillStyle = "#4caf50";
+    ctx.bezierCurveTo(
+        x + 7, y + 3,
+        x + 13, y + 5,
+        x + 15, y + 9
+    );
 
-        ctx.beginPath();
-        ctx.ellipse(
-            x + 21,
-            y + 5,
-            6,
-            3,
-            -0.5,
-            0,
-            Math.PI * 2
-        );
-        ctx.fill();
+    ctx.bezierCurveTo(
+        x + 17, y + 5,
+        x + 23, y + 3,
+        x + 26, y + 7
+    );
 
-    }
+    ctx.bezierCurveTo(
+        x + 30, y + 12,
+        x + 25, y + 18,
+        x + 15, y + 26
+    );
 
+    ctx.closePath();
+
+    ctx.fill();
+
+    ctx.restore();
+}
 
     // =========================
     // ARROW PICKUP
     // =========================
 
-    if (pickups.arrows) {
+   // =========================
+// ARROW PICKUP 💛
+// =========================
 
-        const x = pickups.arrows.x;
-        const y = pickups.arrows.y;
+if (pickups.arrows) {
 
-        // Glow
-        ctx.shadowColor = "gold";
-        ctx.shadowBlur = 15;
+    const x = pickups.arrows.x;
+    const y = pickups.arrows.y;
 
-        // Arrow shaft
-        ctx.strokeStyle = "#d7b56b";
-        ctx.lineWidth = 4;
+    ctx.save();
 
-        ctx.beginPath();
+    // Golden / yellow color
+    ctx.fillStyle = "#f4c542";
 
-        ctx.moveTo(x + 5, y + 25);
-        ctx.lineTo(x + 25, y + 5);
+    ctx.beginPath();
 
-        ctx.stroke();
+    ctx.moveTo(x + 15, y + 26);
 
-        // Arrow head
-        ctx.fillStyle = "#f0d38d";
+    ctx.bezierCurveTo(
+        x + 5, y + 18,
+        x, y + 12,
+        x + 4, y + 7
+    );
 
-        ctx.beginPath();
+    ctx.bezierCurveTo(
+        x + 7, y + 3,
+        x + 13, y + 5,
+        x + 15, y + 9
+    );
 
-        ctx.moveTo(x + 25, y + 5);
-        ctx.lineTo(x + 16, y + 7);
-        ctx.lineTo(x + 23, y + 14);
+    ctx.bezierCurveTo(
+        x + 17, y + 5,
+        x + 23, y + 3,
+        x + 26, y + 7
+    );
 
-        ctx.closePath();
-        ctx.fill();
+    ctx.bezierCurveTo(
+        x + 30, y + 12,
+        x + 25, y + 18,
+        x + 15, y + 26
+    );
 
-        // Reset shadow
-        ctx.shadowBlur = 0;
-    }
+    ctx.closePath();
+
+    ctx.fill();
+
+    ctx.restore();
+}
 }

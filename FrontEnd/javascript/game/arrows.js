@@ -60,32 +60,58 @@ export function drawArrow() {
 
     const arrow = gameState.arrow;
 
-    if (arrow === null) {
+    if (!arrow) {
         return;
     }
 
     ctx.save();
 
-    ctx.translate(
-        arrow.x,
-        arrow.y
-    );
+    // Move to arrow position
+    ctx.translate(arrow.x, arrow.y);
 
+    // Rotate according to arrow direction
     ctx.rotate(arrow.angle);
 
-    ctx.fillStyle = "#d7b56b";
+    // Shaft
+    ctx.fillStyle = "#8B5A2B";
+ ctx.fillRect(
+    -30,
+    -2,
+    60,
+    4
+);
 
-    ctx.fillRect(
-        0,
-        -2,
-        arrow.width,
-        arrow.height
-    );
+    // Arrow head
+    ctx.beginPath();
+
+    ctx.moveTo(30, 0);
+ctx.lineTo(20, -7);
+ctx.lineTo(20, 7);
+
+    ctx.closePath();
+
+    ctx.fillStyle = "#C0C0C0";
+    ctx.fill();
+
+    // Small feathers
+    ctx.fillStyle = "#D8D8D8";
+
+ ctx.fillRect(
+    -30,
+    -5,
+    10,
+    3
+);
+
+ctx.fillRect(
+    -30,
+    2,
+    10,
+    3
+);
 
     ctx.restore();
 }
-
-
 // =========================
 // ENEMY ARROW
 // =========================
@@ -163,7 +189,6 @@ export function updateEnemyArrow() {
     }
 }
 
-
 export function drawEnemyArrow() {
 
     const arrow = gameState.enemyArrow;
@@ -174,21 +199,65 @@ export function drawEnemyArrow() {
 
     ctx.save();
 
+    // Move to arrow position
     ctx.translate(
         arrow.x,
         arrow.y
     );
 
+    // Rotate according to direction
     ctx.rotate(arrow.angle);
 
-    ctx.fillStyle = "#8f3025";
+    // =========================
+    // SHAFT
+    // =========================
+
+    ctx.fillStyle = "#8B5A2B";
 
     ctx.fillRect(
-        0,
+        -30,
         -2,
-        arrow.width,
-        arrow.height
+        60,
+        4
     );
+
+
+    // =========================
+    // ARROW HEAD
+    // =========================
+
+    ctx.beginPath();
+
+    ctx.moveTo(30, 0);
+    ctx.lineTo(20, -7);
+    ctx.lineTo(20, 7);
+
+    ctx.closePath();
+
+    ctx.fillStyle = "#C0C0C0";
+    ctx.fill();
+
+
+    // =========================
+    // FEATHERS
+    // =========================
+
+    ctx.fillStyle = "#D8D8D8";
+
+    ctx.fillRect(
+        -30,
+        -5,
+        10,
+        3
+    );
+
+    ctx.fillRect(
+        -30,
+        2,
+        10,
+        3
+    );
+
 
     ctx.restore();
 }

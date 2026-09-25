@@ -179,3 +179,4 @@ enemy dress up
 and handing the death delay to fix ui experience
 
 
+making ui more great, and adding logic

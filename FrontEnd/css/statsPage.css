@@ -13,6 +13,29 @@ body {
     background: #180e0a;
     color: var(--cream);
 }
+body {
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    color: var(--cream);
+
+    font-family:
+        "MedievalSharp",
+        cursive;
+
+    background-image:
+        url("../images/ChatGPT\ Image\ Sep\ 25\,\ 2026\,\ 08_53_21\ PM.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+}
 
 .stats-page {
     text-align: center;

@@ -402,6 +402,51 @@ export function drawEnemy() {
     ctx.restore();
 }
 
+// =========================
+// ENEMY HEALTH BAR
+// =========================
+
+export function drawEnemyHealthBar() {
+
+    if (enemy.health <= 0) return;
+
+    const barWidth = 120;
+    const barHeight = 10;
+
+    const barX = enemy.x + enemy.width / 2 - barWidth / 2;
+    const barY = enemy.y - 55;
+
+    // BACKGROUND
+    ctx.fillStyle = "#1a0d0d";
+    ctx.fillRect(
+        barX,
+        barY,
+        barWidth,
+        barHeight
+    );
+
+    // HEALTH
+    const healthWidth = (enemy.health / 100) * barWidth;
+
+    ctx.fillStyle = "#b52f35";
+    ctx.fillRect(
+        barX,
+        barY,
+        healthWidth,
+        barHeight
+    );
+
+    // BORDER
+    ctx.strokeStyle = "#d99b32";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(
+        barX,
+        barY,
+        barWidth,
+        barHeight
+    );
+}
+
 export function moveEnemy() {
     const topY = 80;
     const bottomY = canvas.height - enemy.height - 80;

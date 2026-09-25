@@ -11,7 +11,8 @@ import {
     enemy,
     spawnEnemy,
     drawEnemy,
-    moveEnemy 
+    drawEnemyHealthBar,
+    moveEnemy
 } from "./game/enemy.js";
 
 import {
@@ -242,6 +243,7 @@ document.getElementById("healthFill").style.width =
     drawHero();
 
     drawEnemy();
+drawEnemyHealthBar();
  
     // Temporary debugging hitboxes
   

@@ -6,7 +6,7 @@ export const pickups = {
     arrows: null
 };
 
-
+let pickupPulse = 0;
 // =========================
 // PICKUP SAFE AREA
 // =========================
@@ -138,6 +138,13 @@ if (pickups.health) {
     const y = pickups.health.y;
 
     ctx.save();
+    // PULSING ANIMATION
+pickupPulse += 0.08;
+
+const pulse = 1 + Math.sin(pickupPulse) * 0.12;
+ctx.translate(x + 15, y + 15);
+ctx.scale(pulse, pulse);
+ctx.translate(-(x + 15), -(y + 15));
 
     ctx.fillStyle = "#d93636";
 
@@ -190,6 +197,13 @@ if (pickups.arrows) {
     const y = pickups.arrows.y;
 
     ctx.save();
+
+pickupPulse += 0.08;
+
+const pulse = 1 + Math.sin(pickupPulse) * 0.12;
+ctx.translate(x + 15, y + 15);
+ctx.scale(pulse, pulse);
+ctx.translate(-(x + 15), -(y + 15));
 
     // Golden / yellow color
     ctx.fillStyle = "#f4c542";

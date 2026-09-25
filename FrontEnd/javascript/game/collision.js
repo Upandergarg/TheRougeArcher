@@ -22,31 +22,37 @@ export function isColliding(a, b) {
 // =========================
 // ENEMY HITBOXES
 // =========================
-
 export function getEnemyHitboxes() {
 
-    const head = {
-        x: enemy.x + 15,
-        y: enemy.y,
+    // =========================
+    // HEAD
+    // =========================
 
-        width: 50,
-        height: 30
+    const head = {
+        x: enemy.x - 10,
+        y: enemy.y - 30,
+        width: 100,
+        height: 60
     };
+
+
+    // =========================
+    // BODY
+    // =========================
 
     const body = {
-        x: enemy.x,
+        x: enemy.x - 34,
         y: enemy.y + 30,
-
-        width: enemy.width,
-        height: enemy.height - 30
+        width: 148,
+        height: 100
     };
+
 
     return {
         head,
         body
     };
 }
-
 
 // =========================
 // DEBUG HITBOXES
@@ -122,7 +128,12 @@ if (enemy.health <= 0) {
     gameState.kills += 1;
 
     gameState.coins += 10;
+const currentHighScore =
+    Number(localStorage.getItem("highScore")) || 0;
 
+if (gameState.score > currentHighScore) {
+    localStorage.setItem("highScore", gameState.score);
+}
     localStorage.setItem("coins", gameState.coins);
 
     saveGameData();
@@ -133,25 +144,59 @@ if (enemy.health <= 0) {
 }
 }
 
+// HERO HITBOXES
+export function getHeroHitboxes() {
 
+    const head = {
+        x: hero.x + 10,
+        y: hero.y + 10,
+        width: 60,
+        height: 32
+    };
+
+    const body = {
+        x: hero.x + 5,
+        y: hero.y + 35,
+        width: 70,
+        height: 75
+    };
+
+    return { head, body };
+}
 
 // =========================
 // ENEMY ARROW → HERO
 // =========================
 
+// ENEMY ARROW → HERO
 export function checkEnemyArrowCollision() {
 
     const arrow = gameState.enemyArrow;
 
-    if (arrow === null) {
+    if (arrow === null) return;
+
+    const hitboxes = getHeroHitboxes();
+
+    if (isColliding(arrow, hitboxes.head)) {
+
+        console.log("HERO HEADSHOT!");
+
+        damageHero(25);
+
+        gameState.enemyArrow = null;
+
         return;
     }
 
-    if (isColliding(arrow, hero)) {
+    if (isColliding(arrow, hitboxes.body)) {
+
+        console.log("HERO BODY HIT!");
 
         damageHero(10);
 
         gameState.enemyArrow = null;
+
+        return;
     }
 }
 

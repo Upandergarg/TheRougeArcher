@@ -41,16 +41,17 @@ body {
         "MedievalSharp",
         cursive;
 
-    background:
+    background-image:
+        url("../images/ChatGPT\ Image\ Sep\ 25\,\ 2026\,\ 08_53_21\ PM.png");
 
-        radial-gradient(
-            circle at 50% 35%,
-            #5c3820 0%,
-            #281812 42%,
-            #100b08 100%
-        );
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
 }
-
 
 /* =========================
    SCREEN TEXTURE

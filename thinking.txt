@@ -169,3 +169,13 @@ i am not goint to implemet music for noww
 day 21->
 added ui for arrows, and added but then removed ui for arrow Collision and enemy death,
 added ui for pickups powers ups
+
+day 22
+hero dressup
+
+day 23->
+
+enemy dress up
+and handing the death delay to fix ui experience
+
+

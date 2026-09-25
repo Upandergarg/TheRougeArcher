@@ -116,17 +116,20 @@ gameState.hits++;
         gameState.arrow = null;
     }
 
-   if (enemy.health <= 0) {
+if (enemy.health <= 0) {
+
     gameState.score += 100;
     gameState.kills += 1;
 
-   gameState.coins += 10;
+    gameState.coins += 10;
 
-localStorage.setItem("coins", gameState.coins);
+    localStorage.setItem("coins", gameState.coins);
 
-saveGameData();
+    saveGameData();
 
-    spawnEnemy();
+    setTimeout(() => {
+        spawnEnemy();
+    }, 50);
 }
 }
 

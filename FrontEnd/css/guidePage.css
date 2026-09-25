@@ -7,8 +7,8 @@ body {
 
     min-height: 100vh;
 
-    overflow: hidden;
-
+      overflow-x: hidden;
+    overflow-y: auto;
     color: var(--cream);
 
     font-family:
@@ -39,8 +39,40 @@ body {
 
     padding: 70px 20px;
 }
+.step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* =========================
+   GUIDE IMAGE
+========================= */
 
+.step-image {
+    width: 100%;
+    height: 320px;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #6f502b;
+    background: rgba(20, 12, 8, 0.65);
+
+    overflow: hidden;
+    padding: 10px;
+}
+
+.step-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+}
 /* =========================
    HEADER
 ========================= */

@@ -38,18 +38,38 @@ function buyItem(price, button, itemName) {
 // BUY ARROWS
 // =========================
 
+// =========================
+// BUY +10 ARROWS
+// =========================
+
 buyArrowsBtn.addEventListener("click", function() {
 
-    const bought = buyItem(
-        100,
-        buyArrowsBtn,
-        "royalArrows"
-    );
+    const price = 100;
 
-    if (bought) {
-        localStorage.setItem("startingArrows", 20);
+    if (coins < price) {
+        alert("Not enough coins!");
+        return;
     }
 
+    // Remove coins
+    coins -= price;
+
+    // Get current starting arrows
+    let startingArrows =
+        Number(localStorage.getItem("startingArrows")) || 10;
+
+    // Add 10 arrows
+    startingArrows += 10;
+
+    // Save everything
+    localStorage.setItem("coins", coins);
+    localStorage.setItem("startingArrows", startingArrows);
+
+    // Update shop UI
+    coinsElement.textContent = coins;
+
+    buyArrowsBtn.textContent =
+        `+10 ARROWS  (${startingArrows})`;
 });
 
 // =========================
@@ -86,12 +106,7 @@ buyAvatarBtn.addEventListener("click", function() {
 // LOAD PURCHASES
 // =========================
 
-if (localStorage.getItem("royalArrows") === "true") {
 
-    buyArrowsBtn.textContent = "BOUGHT";
-    buyArrowsBtn.disabled = true;
-
-}
 
 if (localStorage.getItem("rogueBadge") === "true") {
 

@@ -178,5 +178,12 @@ day 23->
 enemy dress up
 and handing the death delay to fix ui experience
 
-
+day 24->
 making ui more great, and adding logic
+
+
+
+
+day 25->
+making ui more consistent
+degguging

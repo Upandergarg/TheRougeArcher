@@ -92,7 +92,7 @@ settingsRestartBtn.addEventListener("click", function() {
 settingsExitBtn.addEventListener("click", function() {
 
     window.location.href =
-        "../html/index.html";
+        "../index.html";
 
 });
 }
@@ -102,7 +102,7 @@ if (exitBtn) {
     exitBtn.addEventListener("click", function() {
 
         window.location.href =
-            "../html/index.html";
+            "../index.html";
 
     });
 }
@@ -296,7 +296,8 @@ function increaseGamesPlayed() {
 function restartGame() {
 
     hero.health = 100;
-    hero.arrows = 10;
+hero.arrows =
+    Number(localStorage.getItem("startingArrows")) || 10;
 
     enemy.health = 100;
 
@@ -309,7 +310,7 @@ gameState.isPaused = false;
 
 gameState.score = 0;
 gameState.kills = 0;
-gameState.coins = 0;
+
 gameState.shots = 0;
 gameState.hits = 0;
     gameState.gameOver = false;

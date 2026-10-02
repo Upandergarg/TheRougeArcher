@@ -27,12 +27,12 @@ gameState.shots++;
         width: 30,
         height: 5,
 
-        speed: 8,
+        speed: 50,
 
         angle: hero.angle,
 
         velocityX:
-            Math.cos(hero.angle) * 8,
+            Math.cos(hero.angle) * 12,
 
         velocityY:
             Math.sin(hero.angle) * 8
@@ -156,13 +156,13 @@ const angle = perfectAngle + aimError;
 
         angle: angle,
 
-        speed: 4,
+        speed: 40,
 
         velocityX:
-            Math.cos(angle) * 4,
+            Math.cos(angle) * 7,
 
         velocityY:
-            Math.sin(angle) * 4
+            Math.sin(angle) * 5
     };
 }
 

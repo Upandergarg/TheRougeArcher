@@ -5,19 +5,19 @@
         const statsBtn = document.getElementById("statsBtn");
 
         playBtn.addEventListener("click", () => {
-          window.location.href= "../html/GamePage.html"
+          window.location.href= "./html/GamePage.html"
         });
 
         guideBtn.addEventListener("click", () => {
-            window.location.href="../html/HomePageFeatures/GuidePage.html";
+            window.location.href="./html/HomePageFeatures/GuidePage.html";
         });
 
         shopBtn.addEventListener("click", () => {
-             window.location.href= "../html/HomePageFeatures/ShopPage.html";
+             window.location.href= "./html/HomePageFeatures/ShopPage.html";
         });
 
         statsBtn.addEventListener("click", () => {
-             window.location.href= "../html/HomePageFeatures/StatsPage.html";
+             window.location.href= "./html/HomePageFeatures/StatsPage.html";
         });
 
         // =========================

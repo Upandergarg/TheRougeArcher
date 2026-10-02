@@ -12,7 +12,7 @@ export const enemy = {
     height: 120,
 
     health: 100,
-    accuracy: 0.3
+    accuracy: 0.8
 };
 
 

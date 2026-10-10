@@ -135,7 +135,7 @@ if (gameState.score > currentHighScore) {
     localStorage.setItem("highScore", gameState.score);
 }
     localStorage.setItem("coins", gameState.coins);
-
+localStorage.setItem("kills", gameState.kills);
     saveGameData();
 
     setTimeout(() => {

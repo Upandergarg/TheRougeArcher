@@ -56,6 +56,3 @@ document.getElementById("accuracy").textContent =
     accuracy.toFixed(2) + "%";
 
 
-// =========================
-// BACK BUTTON
-// =========================
